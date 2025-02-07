@@ -18,16 +18,17 @@ colnames(zdf) <- c("zvec", "zlogic")
 zdf
 
 #adding new column named zsquared with squaring zvec
-zdf$zsquared <- sqrt(zdf$zvec)
+zdf$zsquared <- zdf$zvec^2
 zdf
 
 #subsetting dataframe
 help(subset)
 #with the subset () function to only include values of zsquared greater than 10 and less than 100 
 subset_zdf <- subset(zdf, zsquared >10 & zsquared<100)
+subset_zdf
 #with and without the subset () function to only include values of zsquared greater than 10 and less than 100 
 withoutsubset_zdf <- zdf[zdf$zsquared >10 & zdf$zsquared <100,]
-
+withoutsubset_zdf
 #subbsetibng to include row 26
 subset_zdf_row26 <- zdf[26,]
 subset_zdf_row26
