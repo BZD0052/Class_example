@@ -1,3 +1,4 @@
+#This is the coding challenge two which is for data visualization lecture.
 #Read .csv
 DON.database <- read.csv("/Users/bzd00/Downloads/Reproducibility/MycotoxinData.csv", na.strings = "na") #na.string to account for the missing values named as "na".
 str(DON.database) #visualize the structure of the data frame.
@@ -73,7 +74,7 @@ ggplot(DON.database, aes(x = Treatment, y = DON, fill = Cultivar )) +
 
 ######## Question 8 ########
 #another way to represent the above data.
-#Choose the line plot to seek for the trends. But for this data the box plot would be nice since this will show us the distribution.
+# Tried line, violin and beeswarm plot
 
 ####Line plot using stat_summary()
 ggplot(DON.database, aes(x = Treatment, y = DON, color = Cultivar, group = Cultivar)) +
@@ -99,6 +100,20 @@ ggplot(DON.database, aes(x = Treatment, y = DON, color = Cultivar, group = Culti
   ylab("DON (ppm)") +
   facet_wrap(~ Cultivar)
 
+###Violin plot
+
+ggplot(DON.database, aes(x = Treatment, y = DON, fill = Cultivar)) +
+  geom_violin(scale = "width", alpha = 0.5, trim = FALSE) +  # Violin plot
+  geom_boxplot(width = 0.2, fill = "white", alpha = 0.7) +  # Boxplot inside violin
+  stat_summary(fun.data = mean_se, geom = "errorbar", width = 0.1, color = "black", size = 0.5) +  # SE bars
+  geom_point(position = position_jitterdodge(dodge.width = 0.8), color= "black", shape = 21, alpha = 0.3) + #jitter points
+  scale_fill_manual(values = cbbPalette) +  # Use cbbPalette for  colors
+  theme_bw() +
+  xlab("") +
+  ylab("DON (ppm)") +  # Update y-axis label (no log scale)
+  facet_wrap(~ Cultivar) +
+  theme(text = element_text(face="bold"),        #Bold all text
+        axis.text.x = element_text(color= "black", angle = 45, hjust = 1))     # Rotate x-axis labels for better readability
 
 #### Trying the beeswarm package.
 # Install and load the ggbeeswarm package
@@ -118,6 +133,6 @@ ggplot(DON.database, aes(x = Treatment, y = DON, color = Treatment)) +
   facet_wrap(~ Cultivar) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))    # Rotate x-axis labels for better readability
 
-
+ 
 
 
