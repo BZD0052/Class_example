@@ -18,7 +18,7 @@ ggplot(DON.database, aes(x = Treatment, y = DON, color = Cultivar )) +
 #Bar chart with standard error
 ggplot(DON.database, aes(x = Treatment, y = DON, color = Cultivar )) +
   stat_summary(fun = mean, geom = "bar", position = "dodge") +  # Adds bars for mean values
-  stat_summary( fun.data = mean_se, geom = "errorbar") + # Adds error bars.
+  stat_summary( fun.data = mean_se, geom = "errorbar", position = "dodge") + # Adds error bars. ## use the dodge to get rid of overlapping error bars
   xlab("") +
   ylab ("DON (ppm)") 
 
