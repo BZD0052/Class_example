@@ -9,7 +9,7 @@ library(ggplot2) # loading the ggplot2 package
 
 #BOX-PLOT
 ggplot(DON.database, aes(x = Treatment, y = DON, color = Cultivar )) +
-  geom_boxplot() +   # creats box plot.
+  geom_boxplot() +   # creates box plot.
   xlab("") +   #Keeping X label blank.
   ylab ("DON (ppm)")  # Naming Y label as DON (ppm)
 
