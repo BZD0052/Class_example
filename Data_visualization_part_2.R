@@ -1,5 +1,5 @@
-############################### Data Visulization Part Two ######################################
-## Basic ggplot syntax, data types, usage of scales, position arguments, facetting and themes ##
+############################### Data Visualization Part Two ######################################
+## Basic ggplot syntax, data types, usage of scales, position arguments, faceting and themes ##
 #For Publication worthy figures.
 ############### Topics covered ##############
 #Figure design for accessibility
@@ -32,7 +32,7 @@ str(bac.sample.data)
 ### Plot one B
 bac.even <-ggplot(bac.sample.data, aes(x =Time_Point, y=even, color = Crop)) +
   geom_boxplot(position = position_dodge(0.85)) + # Create box plots for each Crop at each Time_Point
-  geom_point(position = position_jitterdodge(0.05))+ # Add jittered points to show individual data points
+  geom_point(position = position_jitterdodge(0.05)) # Add jittered points to show individual data points
   xlab("Hourse post sowing") +
   ylab("Pielou's evenness") +
   scale_color_manual(values = cbbPalette) + # Use a custom color palette for Crop
