@@ -1,5 +1,7 @@
 #Read .csv
-DON.database <- read.csv("/Users/bzd00/Downloads/Reproducibility/MycotoxinData.csv", na.strings = "na") #na.string to account for the missing values named as "na".
+#DON.database <- read.csv("/Users/bzd00/Downloads/Reproducibility/MycotoxinData.csv", na.strings = "na") #na.string to account for the missing values named as "na".
+#using relative path
+DON.database <- read.csv("Sample_data/MycotoxinData.csv", na.strings = "na")
 str(DON.database) #visualize the structure of the data frame.
 
 library(ggplot2) # loading the ggplot2 package
