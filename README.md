@@ -36,11 +36,12 @@ This will mainly include class assignment, coding challenges and some extra work
 ├── Coding_challenge_3_Advance_Data_visualization.R
 ├── Coding_challenge_4                                          # Coding challenge 4 markdown assignmnet directory 
 │   ├── Coding_challenge_4_Markdown.docx                        # Word file for the coding challenge 4
+│   ├── Coding_challenge_4_Markdown.html
 │   ├── Coding_challenge_4_Markdown.md                          # Markdown file for the coding challenge 4
 │   ├── Coding_challenge_4_Markdown.pdf                         # pdf file for the coding challenge 4
 │   ├── Coding_challenge_4_Markdown.Rmd                         # rmd file for the coding challenge 4
 │   └── Coding_challenge_4_Markdown_files                       # Directory to store plots genereted for the coding challenge 4
-│       └── figure-gfm
+│      │ └── figure-gfm
 │           ├── Combined plot-1.png
 │           ├── Plotting 15ADON-1.png
 │           ├── Plotting DON-1.png

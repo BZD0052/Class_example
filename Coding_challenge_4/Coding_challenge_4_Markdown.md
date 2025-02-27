@@ -1,8 +1,13 @@
 - [Link](#link)
-- [First level header](#first-level-header)
-- [Second level header](#second-level-header)
-- [Third level header](#third-level-header)
-- [Fourth level header](#fourth-level-header)
+- [Questions 1](#questions-1)
+- [Question 2](#question-2)
+  - [DON plot](#don-plot)
+  - [15ADON plot.](#adon-plot.)
+  - [Seedmass plot.](#seedmass-plot.)
+  - [Combined plot](#combined-plot)
+- [Question 4](#question-4)
+- [Question 5](#question-5)
+- [Question 6](#question-6)
 
 # Link
 
@@ -13,7 +18,7 @@ as promising biocontrol agent to protect wheat from Fusarium graminearum
 head blight. Plant Disease. https://doi.org/10.1094/PDIS-06-21-1253-RE
 **](https://doi.org/10.1094/PDIS-06-21-1253-RE)
 
-**Questions 1**
+# Questions 1
 
 1.  YAML header
 
@@ -31,7 +36,7 @@ this i have also other output options which i can choose while knitting.
 Literate programming means writing both the code and explanation in the
 same document whihch make analysis easy to understand and reproduce.
 
-**Question 2**
+# Question 2
 
 Here i will use the relative path of the Mycotoxin.csv data file with
 na.strings option set to “na”. I will be using the codes from the coding
@@ -55,7 +60,7 @@ str(DON.database) #visualize the structure of the data frame.
 Now, I will separate code chunk for the figures plotting the DON data,
 15ADON, and Seedmass, and one for the three combined using ggarrange.
 
-# First level header
+## DON plot
 
 This is for DON data.
 
@@ -105,7 +110,7 @@ DON <- ggplot(DON.database, aes(x = Treatment, y = DON, fill = Cultivar)) +
   facet_wrap(~Cultivar) # Create separate panels for each Cultivar.
 ```
 
-# Second level header
+## 15ADON plot.
 
 This id for 15ADON plot.
 
@@ -134,7 +139,7 @@ X15ADON # Display the X15ADON plot
 
 ![](Coding_challenge_4_Markdown_files/figure-gfm/Plotting%2015ADON-1.png)<!-- -->
 
-# Third level header
+## Seedmass plot.
 
 This id for Seedmass plot.
 
@@ -162,7 +167,7 @@ MassperSeed_mg #Display the MassperSeed_mg plot
 
 ![](Coding_challenge_4_Markdown_files/figure-gfm/Plotting%20MassperSeed_mg-1.png)<!-- -->
 
-# Fourth level header
+## Combined plot
 
 This is combined 3 plots using ggarrange.
 
@@ -222,3 +227,35 @@ Fig_combo
 ```
 
 ![](Coding_challenge_4_Markdown_files/figure-gfm/Combined%20plot-1.png)<!-- -->
+
+Question 3
+
+Knit your document together in the following formats: a. .docx (word
+document) OR .pdf with a table of contents b. GitHub flavored markdown
+(.md file).
+
+**DONE**
+
+# Question 4
+
+Push the .docx or .pdf and .md files to GitHub inside a directory called
+Coding Challenge 4.
+
+**DONE**
+
+# Question 5
+
+Now edit, commit, and push the README file for your repository and
+include the following elements.
+
+1.  A clickable link in your README to your GitHub flavored .md file
+2.  A file tree of your GitHub repository.
+
+**DONE**
+
+# Question 6
+
+Please provide me a clickable link to your GitHub
+
+\-[**LINK TO My GitHuB**
+https://github.com/BZD0052/Class_example](https://github.com/BZD0052/Class_example)
