@@ -15,14 +15,14 @@ This will mainly include class assignment, coding challenges and some extra work
 -[R_Markdown_exercise](R_markdown_assignments/R_Markdown_exercise.md)
 
 
+##LINK TO MY RECENT ASSIGNMENT CODING CHALLENGE 4 MARKDOWN
+
+-[Coding_challenge_4_markdown](Coding_challenge_4/Coding_challenge_4_Markdown.md)
+
 ## File Tree
-
-
-
-
 ```
 ├── Class_example.Rproj
-├── Coding_Assignment                                       #Assignments from class and home work
+├── Coding_Assignment                                                #Assignments from class and home work
 │   ├── class1_coding_challlenge.R
 │   ├── coding_assignment_3.html
 │   ├── coding_assignment_3.Rmd
@@ -33,10 +33,21 @@ This will mainly include class assignment, coding challenges and some extra work
 │   ├── R_Markdown_intro.html
 │   ├── R_Markdown_intro.md
 │   └── R_Markdown_intro.Rmd
-├── example delte it not needed.Rmd
-├── README.html
-├── README.md
-├── R_markdown_assignments                                    # assignments for R markdown
+├── Coding_challenge_3_Advance_Data_visualization.R
+├── Coding_challenge_4                                          #Coding challenge 4 markdown assignmnet directory 
+│   ├── Coding_challenge_4_Markdown.docx                        # word file for the coding challenge 4
+│   ├── Coding_challenge_4_Markdown.md                          # markdown file for the coding challenge 4
+│   ├── Coding_challenge_4_Markdown.pdf                         # pdf file for the coding challenge 4
+│   ├── Coding_challenge_4_Markdown.Rmd                         # rmd file for the coding challenge 4
+│   └── Coding_challenge_4_Markdown_files                       # Directory to store plots genereted for the coding challenge 4
+│       └── figure-gfm
+│           ├── Combined plot-1.png
+│           ├── Plotting 15ADON-1.png
+│           ├── Plotting DON-1.png
+│           └── Plotting MassperSeed_mg-1.png
+├── README.html                                                    
+├── README.md                                                      # readme file for this repository
+├── R_markdown_assignments                                         # assignments for R markdown
 │   ├── Example_R_Markdown.R
 │   ├── R_Markdown_exercise.html
 │   ├── R_Markdown_exercise.md
@@ -45,10 +56,9 @@ This will mainly include class assignment, coding challenges and some extra work
 │   │   └── figure-gfm
 │   │       └── Include Figures-1.png
 │   └── shrek.jpg
-└── Sample_data                                             #Contains sample data used in the analysis
+└── Sample_data                                                     #Contains sample data used in the analysis
     ├── BacterialAlpha.csv
     ├── coding_challebege_3_data_visualization.Rmd
     ├── diff_abund.csv
     └── MycotoxinData.csv
-
 ```
