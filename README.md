@@ -3,6 +3,10 @@ This class example started from 2_6_2025.
 I will be coding for the assignment, committing the changes and pushing it to the GitHub. 
 This will mainly include class assignment, coding challenges and some extra works form the class.
 
+#DOI
+
+[![DOI](https://zenodo.org/badge/928476706.svg)](https://doi.org/10.5281/zenodo.14934583)
+
 ##LINKS TO MY LATEST R MARKDOWN ASSIGNMENT
  Theses are the links to my latest assignment related to r markdown some intro and then some class exercise about the use , making documents.
  
