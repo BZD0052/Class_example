@@ -3,17 +3,17 @@ title: "Coding challenge 4 - R_markdown"
 author: "Bibek"
 date: "2025-02-27"
 output:
-  md_document:
-    variant: gfm
+  word_document:
     toc: true
-  pdf_document:
+  Word_document:
     toc: true
   html_document:
     toc: true
     toc_float: true
-  Word_document:
+  md_document:
+    variant: gfm
     toc: true
-  word_document:
+  pdf_document:
     toc: true
 ---
 
