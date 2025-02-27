@@ -27,7 +27,7 @@ displaying code or not (if FALSE= code is not displayed)
     ##  Max.   :1.0000   Max.   :5.000   Max.   :8.000
 
 Example of including the figure
-![](example-delte-it-not-needed_files/figure-gfm/Include%20Figures-1.png)<!-- -->
+![](R_Markdown_exercise_files/figure-gfm/Include%20Figures-1.png)<!-- -->
 R mark down formatting option
 
 # First-level header

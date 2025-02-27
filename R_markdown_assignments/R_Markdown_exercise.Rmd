@@ -3,11 +3,11 @@ title: "R markdown coding homework"  ## this all is yaml header.
 author: "Bibek"
 date: "2025-02-27"
 output:
- md_document:
-  variant: gfm  #github flavoured markdown  #need to be converted if not its gonna be raw formated
  html_document:   # can change the order using the kint.
   toc: TRUE    # add table of content
   toc_float: TRUE #nice floating table of content
+ md_document:
+  variant: gfm  #github flavoured markdown  #need to be converted if not its gonna be raw formated
  word_document:
  pdf_document:
    
