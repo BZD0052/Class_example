@@ -3,17 +3,17 @@ title: "Coding challenge 4 - R_markdown"
 author: "Bibek"
 date: "2025-02-27"
 output:
-  md_document:
-    variant: gfm
+  word_document:
     toc: true
   html_document:
     toc: true
     toc_float: true
-  pdf_document:
+  md_document:
+    variant: gfm
     toc: true
   Word_document:
     toc: true
-  word_document:
+  pdf_document:
     toc: true
 ---
 
@@ -47,7 +47,7 @@ Literate programming means writing both the code and explanation in the same doc
 Here i will use the relative path of the Mycotoxin.csv data file with na.strings option set to "na".
 I will be using the codes from the coding challenge 3 assignment.
 
-```{r}
+```{r Reading CSV}
 #Read .csv
 #using relative path
 DON.database <- read.csv("Sample_data/MycotoxinData.csv", na.strings = "na")
@@ -59,7 +59,7 @@ Now, I will separate code chunk for the figures plotting the DON data, 15ADON, a
 
 This is for DON data.
 
-```{r}
+```{r Plotting DON}
 library(ggplot2) # loading the ggplot2 package
 library(ggpubr) ##integrating multiple statistics and plots
 
@@ -100,7 +100,7 @@ DON <- ggplot(DON.database, aes(x = Treatment, y = DON, fill = Cultivar)) +
 
 This id for 15ADON plot.
 
-```{r}
+```{r Plotting 15ADON}
 #Change the y-variable to plot X15ADON and MassperSeed_mg. 
 
 # Boxplot for X15ADON values
@@ -122,7 +122,7 @@ X15ADON # Display the X15ADON plot
 # Third level header
 
 This id for Seedmass plot.
-```{r}
+```{r Plotting MassperSeed_mg}
 # Boxplot for MassperSeed_mg (Seed Mass in mg)
 
 MassperSeed_mg <- ggplot(DON.database, aes(x = Treatment, y = MassperSeed_mg, fill = Cultivar)) +
@@ -143,7 +143,7 @@ MassperSeed_mg #Display the MassperSeed_mg plot
 This is combined 3 plots using ggarrange.
 
 
-```{r}
+```{r Combined plot}
 # Combining all plots together
 
 Fig_combo<-ggarrange(    ## Arrange the three plots (DON, X15ADON, MassperSeed_mg) side by side in one row

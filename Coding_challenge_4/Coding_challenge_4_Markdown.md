@@ -87,7 +87,7 @@ DON #Visual
     ## Warning: Removed 8 rows containing missing values or values outside the scale range
     ## (`geom_point()`).
 
-![](Coding_challenge_4_Markdown_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
+![](Coding_challenge_4_Markdown_files/figure-gfm/Plotting%20DON-1.png)<!-- -->
 
 ``` r
 #Reorder the factor order level
@@ -132,7 +132,7 @@ X15ADON # Display the X15ADON plot
     ## Warning: Removed 10 rows containing missing values or values outside the scale range
     ## (`geom_point()`).
 
-![](Coding_challenge_4_Markdown_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
+![](Coding_challenge_4_Markdown_files/figure-gfm/Plotting%2015ADON-1.png)<!-- -->
 
 # Third level header
 
@@ -160,7 +160,7 @@ MassperSeed_mg #Display the MassperSeed_mg plot
     ## Warning: Removed 2 rows containing missing values or values outside the scale range
     ## (`geom_point()`).
 
-![](Coding_challenge_4_Markdown_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
+![](Coding_challenge_4_Markdown_files/figure-gfm/Plotting%20MassperSeed_mg-1.png)<!-- -->
 
 # Fourth level header
 
@@ -221,4 +221,4 @@ Fig_combo<-ggarrange(    ## Arrange the three plots (DON, X15ADON, MassperSeed_m
 Fig_combo
 ```
 
-![](Coding_challenge_4_Markdown_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
+![](Coding_challenge_4_Markdown_files/figure-gfm/Combined%20plot-1.png)<!-- -->
