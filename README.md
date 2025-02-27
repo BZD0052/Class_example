@@ -12,3 +12,30 @@ This will mainly include class assignment, coding challenges and some extra work
 
 
 ## File Tree
+
+
+```
+├── Class_example.Rproj
+├── Coding_Assignment                         #Assignments from class and home work
+│   ├── class1_coding_challlenge.R
+│   ├── coding_assignment_3.html
+│   ├── coding_assignment_3.Rmd
+│   ├── Coding_challenge_2_Data_visualization.R
+│   ├── Coding_challenge_3_Advance_Data_visualization.R
+│   ├── Data_visualization_part_1.R
+│   ├── Data_visualization_part_2.R
+│   ├── R_Markdown_intro.html
+│   ├── R_Markdown_intro.md
+│   └── R_Markdown_intro.Rmd
+├── README.html
+├── README.md
+├── R_markdown_assignments                     # assignments for R markdown
+│   ├── Example_R_Markdown.R
+│   └── R_Markdown_exercise.md
+├── Sample_data                               #Contains sample data used in the analysis
+│   ├── BacterialAlpha.csv
+│   ├── coding_challebege_3_data_visualization.Rmd
+│   ├── diff_abund.csv
+│   └── MycotoxinData.csv
+└── shrek.jpg
+```
