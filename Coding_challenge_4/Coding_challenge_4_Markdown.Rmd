@@ -172,6 +172,7 @@ b.	GitHub flavored markdown (.md file).
 
 Push the .docx or .pdf and .md files to GitHub inside a directory called Coding Challenge 4. 
 
+[**Link to pdf file**](https://github.com/BZD0052/Class_example/blob/main/Coding_challenge_4/Coding_challenge_4_Markdown.pdf)
 **DONE**
 
 # Question 5
