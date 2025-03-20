@@ -1,0 +1,75 @@
+---
+title: "Coding challenge 5-Data Wrangling"
+author: "Bibek"
+date: "2025-03-20"
+output: 
+  pdf_document:
+            keep_md: yes
+            toc: TRUE    # add table of content
+
+---
+**#Question 1**
+
+#Loading dataset
+```{r}
+
+Diversity <- read.csv("Sample_data/DiversityData.csv")
+Meta <- read.csv("Sample_data/Metadata.csv")
+```
+
+**#Question 2 **
+#Loading library
+#Join them together via common column 'code'.
+```{r}
+library(tidyverse)
+alpha <- left_join(Diversity, Meta, by = "Code")
+```
+
+
+**#Question 3**
+# Calculate Pielou's evennes index. This equals to the Shannon diversity index (column Shannon) divided by the log of the richness column. 
+```{r}
+aplha.even <- mutate(alpha, Pielou_Eveness_Index= shannon/log(richness)) # creating a new column Pielou_Eveness_Index
+```
+
+**#Question 4**
+#summarise function for Mean and SE of grouped by crop over time.
+```{r}
+alpha_average <- aplha.even %>%
+  group_by(Crop, Time_Point) %>% # grouping by crop and time point
+  summarise(Mean.even = mean(Pielou_Eveness_Index), # calculating the mean even, count, stdeviation, and standard error
+            count = n(), 
+            sd.even = sd(Pielou_Eveness_Index),
+            std.err = sd.even/sqrt(count))
+alpha_average
+```
+**#Question 5**
+# Calulate the differences between soybean column, soil column, and the difference between the cotton column and the soil column.
+```{r}
+alpha_average2 <- alpha_average %>%
+  select(Time_Point, Crop, Mean.even) %>%
+  pivot_wider(names_from = Crop, values_from = Mean.even) %>% # pivot to wide format
+  mutate(diff.cotton.even = Soil - Cotton,
+         diff.soybean.even = Soil - Soybean) ##  calculate the difference between the mean between the groups.
+```
+
+**#Question 6**
+# Connecting plot
+
+```{r Difference from soil in Pielou eveness vs Time}
+alpha_average2 %>%
+  select(Time_Point,diff.cotton.even,diff.soybean.even)%>%
+  pivot_longer(c(diff.cotton.even, diff.soybean.even), names_to = "diff") %>%
+  ggplot(aes(x=Time_Point, y= value, color = diff)) +
+  geom_line()+
+  theme_classic()+
+  xlab("Time (hrs)") +
+  ylab("Difference from soil in Pielou's eveness")
+
+```
+**#Question 7**
+#Make .md file, push to GitHub isnide directory called Coding challenge 5 and provide link in you submission file.
+#See Coding challenge 5 folder.
+
+Peasle click this:
+[**Link to my GitHub**](https://github.com/BZD0052/Class_example.git)
