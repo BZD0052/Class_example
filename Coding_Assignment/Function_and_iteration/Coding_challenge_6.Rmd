@@ -154,7 +154,7 @@ result_distance2
 **#Question 7** 
 Commit and push a gfm .md file to GitHub inside a directory called Coding Challenge 6. 
 
-Peasle click this:
+Please click this:
 [**Link to my GitHub**](https://github.com/BZD0052/Class_example/tree/main/Coding_Assignment/Function_and_iteration)
 
 
