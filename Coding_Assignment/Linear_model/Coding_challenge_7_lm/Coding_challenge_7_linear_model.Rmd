@@ -14,8 +14,7 @@ output:
 # Question 1
 
 **Read in the data called “PlantEmergence.csv” using a relative file path and load the following libraries. tidyverse, lme4, emmeans, multcomp, and multcompView. Turn the Treatment , DaysAfterPlanting  and Rep into factors using the function as.factor**
- *Example shown here.*
- *STAND$Treatment <- as.factor(STAND$Treatment)*
+
 
 ```{r Question 1}
 #Loading libraries
@@ -60,9 +59,9 @@ anova(lm2)
 confint(lm2)
 ```
 
-We found that Treatment 2 had 134.53 (+-6.775364;+-95% CI)  units less emergence time than Treatment 1 (p-value <2e-16 ***).
+We found that Treatment 2 had 134.53 (+/-6.76;+/-95% CI)  units less emergence time than Treatment 1 (p-value <2e-16 ***).
 The intercept represents the average emergence for treatment 1 at 7 days after planting which is 182.163 days.
-The coefficient of Treatment 2 is the difference in emergence between treatment 2 and treatment 1.
+
 
 # Question 4
 **Calculate the least square means for Treatment using the emmeans package and perform a Tukey separation with the compact letter display using the cld function. Interpret the results.**
@@ -73,7 +72,7 @@ results_lsmeans<-cld(lsmeans,alpha=0.05,details=TRUE) #compact letter display
 results_lsmeans
 ```
 
-Based on the estimated marginal means adjusted for Days After Planting, Treatment 2 had the lowest emergence (55.6) and was significantly different from all other treatments (p < 0.0001). Treatments 3, 5, and 6 showed the highest average emergence (~200) and were statistically similar, forming the top-performing group.Treatments 1, 4, 8, and 9 exhibited moderate emergence (~190–198) and were not significantly different from each other, grouping together. Treatment 7 had a moderate emergence level (188.0) but statistically similar to treatments 1,4,8, and 9. In conclusion, Treatment 2 greatly reduced emergence, while the remaining treatments performed similarly, with Treatments 3, 5, and 6 showing the highest emergence.
+Based on the estimated marginal means, Treatment 2 had the lowest emergence (55.6) and was significantly different from all other treatments (p < 0.0001). Treatments 3, 5, and 6 showed the highest average emergence (199-209.9) and were statistically similar, forming the top-performing group.Treatments 1, 4, 8, and 9 exhibited moderate emergence (190.2–197.9) and were not significantly different from each other, grouping together. Treatment 7 had a moderate emergence level (188) but statistically similar to treatments 1,4,8, and 9. In conclusion, Treatment 2 greatly reduced emergence, while the remaining treatments performed similarly, with Treatments 3, 5, and 6 showing the highest emergence.
 
 # Question 5
 
@@ -121,7 +120,7 @@ plot_cldbars_onefactor(lm2,"Treatment")
 
 ```
 
-The letters above the bars (like "a", "ab", "b", "c") come from a Tukey’s Honest Significant Difference (HSD) test (α = 0.05). This test compares the mean number of emerged plants across all treatments and tells you which treatments are statistically different from each other. Treatments that share the same letter are not significantly different from one another in terms of the number of emerged plants. For example, Treatments labeled with "a" or "ab" performed similarly, while those with different letters (like "a" vs. "b" or "c") are significantly different. Treatment 2 (labelled with"c") , had the lowest emergence and was significantly different from all others. Treatments 3, 5, and 6 (labeled with "a"), had the highest emergence. Treatments 1, 4, 8, and 9 (labelled with "ab") fall in between and are not statistically different from either the highest or middle group. These groupings help quickly identify which treatments had similar or significantly different effects on plant emergence.
+The letters above the bars ( a, ab, b, c) come from a Tukey’s HSD test (α = 0.05). This test compares the mean number of emerged plants across all treatments and tells you which treatments are statistically different from each other. Treatments that share the same letter are not significantly different from one another in terms of the number of emergence. For example, Treatments labeled with "a" or "ab" performed similarly, while those with different letters (example; a vs. b) are significantly different. Treatment 2 (labelled with"c") , had the lowest emergence and was significantly different from all others. Treatments 3, 5, and 6 (labeled with "a"), had the highest emergence. Treatments 1, 4, 8, and 9 (labelled with "ab") fall in between and are not statistically different from either the highest or middle group. These groupings help quickly identify which treatments had similar or significantly different effects on plant emergence.
 
 # Question 6
 
