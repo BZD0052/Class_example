@@ -1,0 +1,192 @@
+---
+title: "Linear_models"
+author: "Bibek"
+date: "2025-04-03"
+output: 
+  html_document:
+     keep_md: yes
+  pdf_document:
+            keep_md: yes
+---
+#Linear Models
+
+
+```{r}
+#loading packages
+
+library(tidyverse)
+library(lme4)
+
+```
+Loading the data mtcars.
+```{r}
+data("mtcars") #loading the database
+```
+
+
+
+```{r}
+library(ggplot2)
+ggplot(mtcars, aes(x = wt, y = mpg)) +
+  geom_smooth(method = lm, se = FALSE, color = "grey") +
+  geom_point(aes(color = wt)) +
+  xlab("Weight") + 
+  ylab("Miles per gallon") +
+  scale_colour_gradient(low = "red", high = "blue") +
+  theme_classic()
+```
+Does it look like there is a relationship? Absolutely! But how do we know?
+
+We run a linear model - or if it's a continuous x variable and a continuous y variable, we would call it a regression. If we consider it a cause-and-effect relationship, we may call it a correlation.
+
+The simplest way to do this is with the function lm()
+
+```{r}
+lm1 <- lm(mpg ~ wt, data = mtcars)
+```
+
+When we run this it gives us an output of the predicted Intercept or our β0 parameter.
+
+We can now run summary of this linear model to output some summary statistics
+
+```{r}
+summary(lm1)
+```
+Now, we have a pretty good idea that the slope is not equal to 0, and the intercept estimate is pretty good.
+
+Another thing to pay attention to is the R squared. This tells you the variation in y explained by x. So, in our case, about 74% of the variation in y is explained by the x variable.
+
+Ok, what if we wanted an ANOVA table from this? We could run an ANOVA.
+```{r}
+anova(lm1)
+```
+Hey, the p-value is the same!!! Whoa… it means that a linear model and an ANOVA are essentially the same things, and the value reported in the ANOVA is the value of the linear regression or our slope parameter. This means that wt has a significant effect on miles per gallon.
+
+
+We can also run correlation analysis
+```{r}
+cor.test(mtcars$wt, mtcars$mpg)
+```
+
+This gives us a different r value which is the correlation statistic. The closer to -1 or 1 means the stronger the correlation between the two variables.
+
+The pvalue is the same in each of these analysis
+
+#Catergorical variable
+What if we have a categorial x variable and a continuous y variable we would perform a t-test.
+
+Loading our example dataset
+```{r}
+bull.rich <- read.csv("Sample_data/Bull_richness.csv")
+```
+
+Filter for one treatment and growth stage for t test.
+
+```{r}
+bull.rich.sub <- bull.rich %>%
+  filter(GrowthStage == "V8" & Treatment == "Conv.")
+
+t.test(richness~Fungicide, data = bull.rich.sub)
+```
+
+
+##Doing this in linear model
+```{r}
+lm2 <-lm(richness~Fungicide, data = bull.rich.sub)
+summary(lm2)
+```
+ANOVA 
+```{r}
+anova(lm2)
+```
+
+What if we have more than two groups?
+
+```{r}
+#Filter the data 
+
+bull.rich.sub2 <- bull.rich %>%
+  filter(Fungicide == "C" & Treatment == "Conv." & Crop == "Corn")
+
+bull.rich.sub2$GrowthStage <- factor(bull.rich.sub2$GrowthStage, levels = c("V6", "V8", "V15")) # change the factor level
+
+ggplot(bull.rich.sub2, aes(x = GrowthStage, y = richness)) +
+  geom_boxplot()
+```
+
+##linear model and various ANOVAs
+```{r}
+lm.growth <- lm(richness ~ GrowthStage, data = bull.rich.sub2)
+summary(lm.growth)
+anova(lm.growth)
+```
+
+##emmeans
+Which group are different?
+We can do post-hoc tests to find out. The simplest way to think of this is individual t-tests across groups. The most versatile way to do this is with the packages means, and multcomp.
+
+```{r}
+library(emmeans)
+library(multcomp)
+```
+The lsmeans are the least squared means - the means estimated by the linear model. This contrasts the arithmetic means, which are the means calculated or the average.
+```{r}
+
+lsmeans <- emmeans(lm.growth, ~GrowthStage) # estimate lsmeans of variety within site and year
+results_lsmeans <- cld(lsmeans, alpha = 0.05, details = TRUE) # contrast with Tukey ajustment by default. #cld -compact letter display
+results_lsmeans
+
+```
+
+#Interaction
+
+We can do this within a linear model as well using the * between factors.
+
+Lets filter our dataset to include fungicide term.
+```{r}
+bull.rich.sub3 <- bull.rich %>%
+  filter(Treatment == "Conv." & Crop == "Corn")
+
+
+```
+##linear model with fungicide interaction factor
+```{r}
+# write it like this
+lm.interaction <- lm(richness ~ GrowthStage + Fungicide + GrowthStage:Fungicide, data = bull.rich.sub3)
+
+#OR 
+lm.interaction <-lm(richness ~ GrowthStage*Fungicide, data = bull.rich.sub3)
+
+summary(lm.interaction)
+anova(lm.interaction)
+```
+
+
+```{r}
+lsmeans <- emmeans(lm.interaction, ~Fungicide|GrowthStage) # estimate lsmeans of variety within siteXyear
+Results_lsmeans <- cld(lsmeans, alpha = 0.05, reversed = TRUE, details = TRUE) # contrast with Tukey ajustment
+Results_lsmeans
+
+#IN ggplot visulaization
+
+ggplot(bull.rich.sub3,aes(x= GrowthStage, y= richness, color = Fungicide))+
+  geom_boxplot()
+```
+
+#MIxed effect models
+In mixed effects models we have fixed and random effects term. The random effects term is something that affects the variation in y. A fixed effect is something that affects the mean of y.
+
+Adding random effects
+```{r}
+lm.interaction2 <- lmer(richness ~ GrowthStage*Fungicide + (1|Rep), data = bull.rich.sub3)
+summary(lm.interaction2)
+```
+#effect of fungicide in growthsatge
+```{r}
+lsmeans <- emmeans(lm.interaction2, ~Fungicide|GrowthStage) # estimate lsmeans of variety within siteXyear
+Results_lsmeans <- cld(lsmeans, alpha = 0.05, reversed = TRUE, details = TRUE) # contrast with Tukey ajustment
+Results_lsmeans
+```
+
+
+
